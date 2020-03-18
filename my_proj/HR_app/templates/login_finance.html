@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <body>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">TYSS HR MANAGEMENT SYSTEM</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+
+              <li><a href="{% url 'HR_app:change_password' %}"><span class="glyphicon glyphicon-log-in"></span>change_password</a></li>
+              <li><a href="{% url 'HR_app:user_logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            {% else %}
+
+              <li><a href="{% url 'HR_app:user_login_Delivery_Team' %}"><span class="glyphicon glyphicon-log-in"></span> Login/DeliveryTeam</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login/BU</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login/Finance</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login/HR</a></li>
+            {% endif %}
+
+
+          </ul>
+        </div>
+      </nav>
+
+
+
+    <div class="container">
+      <div class="jumbotron">
+        <h3>Welcome To Finance Team Login</h3>
+
+        <h3>Login here :</h3>
+  <form method="post" action="{% url 'HR_app:user_login_Fianance_Team' %}">
+            {% csrf_token %}
+
+            <div>
+              <p><label for="username">Username:</label></p>
+                <p><input type="text" name="username" placeholder="Username"></p>
+
+              <p><label for="password">Password:</label></p>
+                  <p><input type="password" name="password" placeholder="Password"></p>
+
+              <p><input type="submit" name="" value="Login"></p>
+
+            </div>
+
+
+
+
+
+  </form>
+  </div>
+    </div>
+  </body>
+</html>
