@@ -175,3 +175,12 @@ def change_password(request):
     return render(request, 'change_password.html', {
         'form': form
     })
+
+
+def candidate_update(request):
+    obj = get_object_or_404(Employee,id=id)
+    form = EmployeeForm(request.POST,instance=obj)
+    if form.is_valid():
+        form.save()
+        return redirect('/candidate_update')
+    return render(request,'candidate_update',{'form':form})

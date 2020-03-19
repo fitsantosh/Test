@@ -29,8 +29,3 @@ class Employee(models.Model):
     Actions3=models.CharField(blank=False,choices=In_CHOICES,max_length=10)
     Actions4=models.CharField(blank=False,choices=In_CHOICES,max_length=10)
     Employement_Type=models.CharField(blank=False,choices=on_CHOICES,max_length=10)
-
-
-
-    #def get_absolute_url(self):
-        #return reverse("products:product-detail", kwargs={"id": self.id}) #f"/products/{self.id}/"
